@@ -1,0 +1,3 @@
+client id : 8019258169-6rbdrsoochb3la1sovsb6i58mdq9feen.apps.googleusercontent.com
+
+client secret: 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

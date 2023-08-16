@@ -1,0 +1,154 @@
+<!-- import React, { useContext, useEffect } from "react";
+import { useState } from "react";
+import HeaderComponent from "../components/header";
+import FooterComponent from "../components/footer";
+import DataSharingContext from "../context/data-sharing-context";
+import SignInComponent from "../components/signin-pop";
+
+
+const HomeScreen = () => {
+
+
+
+    const [search, setSearch] = useState("");
+
+    const tableData = useContext(DataSharingContext);
+
+
+
+
+    return (
+        <div>
+            <div className="overall-container">
+                <div className="overall-percent">
+                    <HeaderComponent></HeaderComponent>
+                    <div className="double-container-banner-home"></div>
+                    <div className="home-container">
+                        <div className="table-float">
+                            <div className="home-cnt-body">
+
+                                <div className="seasrch-bar">
+                                    <input
+                                        className="search-bar"
+                                        type="text"
+                                        placeholder="Search..."
+                                        value={search}
+                                        onChange={(e) => setSearch(e.target.value)}
+                                    />
+                                </div>
+                                <div className="overflow">
+                                    <table id="customers">
+                                        <thead>
+                                            <tr>
+                                                <th>NAME</th>
+                                                <th>RELATION</th>
+                                                <th>PANCHANGAM</th>
+                                                <th>MONTH</th>
+                                                <th>NAKSHATHRA</th>
+                                                <th>BIRTH DATE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+
+                                            {/* {
+
+                                                tableData.globalVariable
+                                                    .filter((object) =>
+                                                        search.trim() === "" || (object.userName && object.userName.toLowerCase().includes(search.toLowerCase()))
+                                                        || (object.userCalender && object.userCalender.toLowerCase().includes(search.toLowerCase()))
+                                                        || (object.userMasam && object.userMasam.toLowerCase().includes(search.toLowerCase()))
+                                                        || (object.userNakshatra && object.userNakshatra.toLowerCase().includes(search.toLowerCase()))
+                                                    ).map((object, index) => {
+                                                        return (
+                                                            <tr key={index}>
+                                                                <td>{object.userName}</td>
+                                                                <td>{object.userRelation}</td>
+                                                                <td>{object.userCalender}</td>
+                                                                <td>{object.userMonth}</td>
+                                                                <td>{object.userNakshathra}</td>
+                                                                <td>{object.userDate}</td>
+                                                            </tr>
+                                                             <tr>
+                                                             <td>{object.relName}</td>
+                                                             <td>{object.relRelation}</td>
+                                                             <td>{object.relCalender}</td>
+                                                             <td>{object.relMonth}</td>
+                                                             <td>{object.relNakshathra}</td>
+                                                             <td>{object.relDate}</td>
+                                                           </tr>
+                                                            
+
+                                                        )
+                                                    })
+                                                    
+                                            } */}
+
+
+                                            {tableData.globalVariable
+                                                .filter((object) =>
+                                                    (object.userName && object.userName.toLowerCase().includes(search.toLowerCase())) ||
+                                                    (object.userCalender && object.userCalender.toLowerCase().includes(search.toLowerCase())) ||
+                                                    (object.userRelation && object.userRelation.toLowerCase().includes(search.toLowerCase())) ||
+                                                    (object.userMasam && object.userMasam.toLowerCase().includes(search.toLowerCase())) ||
+                                                    (object.userNakshatra && object.userNakshatra.toLowerCase().includes(search.toLowerCase())) ||
+                                                    (object.relName && object.relName.toLowerCase().includes(search.toLowerCase())) ||
+                                                    (object.relRelation && object.relRelation.toLowerCase().includes(search.toLowerCase())) ||
+                                                    (object.relCalender && object.relCalender.toLowerCase().includes(search.toLowerCase())) ||
+                                                    (object.relMonth && object.relMonth.toLowerCase().includes(search.toLowerCase())) ||
+                                                    (object.relNakshathra && object.relNakshathra.toLowerCase().includes(search.toLowerCase()))
+                                                )
+
+                                                .map((object, index) => (
+                                                    <React.Fragment key={index}>
+
+
+                                                        <tr>
+                                                            <td>{object.userName}</td>
+                                                            <td>{object.userRelation}</td>
+                                                            <td>{object.userCalender}</td>
+                                                            <td>{object.userMonth}</td>
+                                                            <td>{object.userNakshathra}</td>
+                                                            <td>{object.userDate}</td>
+                                                        </tr>
+                                                   
+                                                        <tr>
+                                                            <td>{object.relName}</td>
+                                                            <td>{object.relRelation}</td>
+                                                            <td>{object.relCalender}</td>
+                                                            <td>{object.relMonth}</td>
+                                                            <td>{object.relNakshathra}</td>
+                                                            <td>{object.relDate}</td>
+                                                        </tr>
+                                                    </React.Fragment>
+
+                                                ))}
+
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div className="table-add">
+                            <label className="letters-color">click to see for your beloved ones...</label>
+                            <SignInComponent></SignInComponent>
+
+                        </div>
+                    </div>
+                    <div className="empty-container-footer">
+                        <FooterComponent></FooterComponent>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default HomeScreen; -->
+
+
+
+<!-- check signinpopup and signup context.globalfunction (getdata) -->
