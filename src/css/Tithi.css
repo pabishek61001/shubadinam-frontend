@@ -1,0 +1,33 @@
+/* // tithi css */
+
+.nakandtithi{
+    /* border: 2px solid firebrick; */
+    height: 22%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.title-nakshatra-tithi {
+    /* border: 2px solid firebrick; */
+    height: 11%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+.title-Paksham {
+    /* border: 2px solid firebrick; */
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+.title-Tithiname{
+    /* border: 2px solid firebrick; */
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}

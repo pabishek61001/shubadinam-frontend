@@ -31,7 +31,7 @@ const BengaliPanchangam = () => {
 
   const handleUpload = () => {
     // Make an API call to the backend with the formatted data
-    const URL = "http://localhost:4000/api/upload/bengali";
+    const URL = "https://backend.shubadinam.com/api/upload/bengali";
     axios.post(URL, { data: parsedData })
       .then((response) => {
         console.log('Data uploaded successfully!');
@@ -53,7 +53,7 @@ const BengaliPanchangam = () => {
         <input type="file" onChange={handleFileChange} />
       </div>
       <div>
-        <button onClick={handleUpload}>Upload Data</button>
+        <button className="upload-btn" onClick={handleUpload}>Upload Data</button>
       </div>
       <div>
         <table>

@@ -1,6 +1,11 @@
 import React, {useEffect} from "react";
 import HeaderComponent from "../components/header";
 import FooterComponent from "../components/footer";
+import ScrollToTop from "react-scroll-to-top";
+
+import Top10px from "./Top10px";
+import Top20px from "./Top20px";
+import BottomSpace from "./BottomSpace"
 
 const PrivacyPolicyScreen = () => {
     useEffect(() => {
@@ -9,23 +14,27 @@ const PrivacyPolicyScreen = () => {
     return (
 
         <div>
-            <div className="overall-container">
+            <div className="overall-container-privacy">
+            <ScrollToTop smooth />
                 <div className="overall-percent">
                     <HeaderComponent></HeaderComponent>
-                    <div className="center-container">
+                    <Top10px/>
+
+                    <Top20px/>
+                    <div className="center-container-privacy">
                         <br />
 
-                        <h1>Privacy Policy</h1>
-                        <ol className="letters-color-subhead">
+                        <h2>Privacy Policy</h2>
+                        <ol>
 
                             <h2 className="letters-color-subhead">Introduction:</h2>
-                            <p className="letters-color-subhead1">janmadinam.in values your privacy and is committed to protecting your personal information. This Privacy Policy
+                            <p className="letters-color-subhead1">Shubadinam.com values your privacy and is committed to protecting your personal information. This Privacy Policy
                                 explains how we collect, use, and safeguard your information when you use our website ("Site").</p>
 
 
                             <h2 className="letters-color-subhead">Information We Collect:</h2>
                             <p className="letters-color-subhead1">We may collect personal information from you when you register on our Site, subscribe to our newsletter, or use
-                                certain features of the Site. This information may include your name, email address, birthdate, and any other
+                                certain features of the Site. This information may include your name, email address, birthdate and any other
                                 information you voluntarily provide.</p>
 
 
@@ -61,16 +70,16 @@ const PrivacyPolicyScreen = () => {
                                 effective immediately upon posting on the Site.</p>
 
 
-                            <h2 className="letters-color-subhead">Contact Us:</h2>
+                            {/* <h2 className="letters-color-subhead">Contact Us:</h2>
                             <p className="letters-color-subhead1">If you have any questions or concerns about this Privacy Policy, please contact us at
-                                <a href="mailto:info@janmadinam.in">info@janmadinam.in</a>.</p>
+                                <a href="mailto:info@janmadinam.in">info@janmadinam.in</a>.</p> */}
 
                         </ol>
 
                     </div>
-                    <div className="empty-container-footer">
+                    <BottomSpace/>
                         <FooterComponent></FooterComponent>
-                    </div>
+
                 </div>
             </div>
         </div>

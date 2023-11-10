@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 
+import Swal from "sweetalert2";
+
 const HomeSignInComponent = () => {
 
 
@@ -63,32 +65,96 @@ const HomeSignInComponent = () => {
     const clickSubmitbtn = () => {
         console.log(dynamicInput);
 
-        const link = "http://localhost:4000/logged/user"
+        const link = "https://backend.shubadinam.com/logged/user"
         axios.post(link, dynamicInput)
             .then((response) => {
+
+                const loggingUser = response.data.data2;
+                const loggingRelation = response.data.data1;
+
                 // console.log(response.data);
                 if (response.data.errors) {
                     SetBackendError(response.data.errors)
-                    alert(response.data.errors[0].msg)
+
+                    const invalidmailPass = response.data.errors[0].msg
+                    console.log(invalidmailPass)
+
+                    Swal.fire({
+                        title: 'Invalid',
+                        text: invalidmailPass,
+                        icon: 'error',
+                        confirmButtonText: 'Got it!', // Change the confirm button text
+                        confirmButtonColor: '#3085d6', // Change the confirm button color
+                        background: '#f5f5f5', // Change the background color
+                        customClass: {
+                            container: 'my-custom-container-class', // Add a custom container class
+                            title: 'my-custom-title-class', // Add a custom title class
+                            content: 'my-custom-content-class', // Add a custom content class
+                            confirmButton: 'my-custom-confirm-button-class' // Add a custom confirm button class
+                        },
+                    });
+
+
+
+                    // alert(response.data.errors[0].msg)
+
                 } else {
                     SetBackendError([])
                     if (response.data.success === "Success") {
 
-
-                        console.log(response.data);
                         const stringifyUserInfo = JSON.stringify(dynamicInput);
                         localStorage.setItem("isAuthenticated", btoa(stringifyUserInfo));
-                        localStorage.setItem("email", dynamicInput.userEmail);
+                        // localStorage.setItem("email", dynamicInput.userEmail);
+                        const stringifyForeignKey = JSON.stringify(dynamicInput.userEmail);
+                        localStorage.setItem("fkey", btoa(stringifyForeignKey));
 
+
+                        console.log(loggingUser);
+                        console.log(loggingRelation);
+                        localStorage.setItem('myDataKey', JSON.stringify(loggingRelation));
+                        localStorage.setItem('myDataKey2', JSON.stringify(loggingUser));
+
+                        window.location.reload();
                         navigate("/home");
 
+                        console.log(response.data);
+
                     } else {
-                        alert("No records existed")
+                        alert("retry again")
                     }
                 }
             })
             .catch((error) => {
-                console.error('Error:', error)
+
+                console.log('Error:', error)
+                // console.log(error.response.data.norecords);
+                // console.log(error.response.data.message);
+                if (error.message==="Network Error") {
+                    // const msg1 = error.response.data.message
+                    Swal.fire({
+                        title: 'Under Maintanance',
+                        text:'Please login after sometime!',
+                        icon: 'warning',
+                        confirmButtonText: 'Ok',
+                    })
+                }
+               else if (error.response.data.norecords === "Failure") {
+                    const msg1 = error.response.data.message
+                    Swal.fire({
+                        title: 'Access Denied',
+                        text: msg1,
+                        icon: 'warning',
+                        confirmButtonText: 'Ok',
+                    });
+                } else if (error.response.data.passfailure === "Failure") {
+                    const msg1 = error.response.data.message
+                    Swal.fire({
+                        title: 'Access Denied',
+                        text: msg1,
+                        icon: 'warning',
+                        confirmButtonText: 'Ok',
+                    });
+                }
             });
 
         ErrorFormFunction({
@@ -107,6 +173,28 @@ const HomeSignInComponent = () => {
 
 
 
+    useEffect(() => {
+        const handleScroll = () => {
+            // Calculate the scroll position threshold
+            const scrollThreshold = 2000; // You can adjust this value as needed
+
+            // Check if the page has scrolled beyond the threshold
+            if (window.scrollY > scrollThreshold) {
+                setIsOpen(false);
+            }
+        };
+
+        // Attach the scroll event listener when the component mounts
+        window.addEventListener('scroll', handleScroll);
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+
+
 
 
     return (
@@ -115,13 +203,17 @@ const HomeSignInComponent = () => {
         <div>
 
             <div className="popup-container">
-                <button className="open-btn signout-btn" onClick={togglePopup}>Sign In</button>
+                {/* <button className="open-btn signout-btn" onClick={togglePopup}>Sign In</button> */}
 
                 {isOpen && (
-                    <div className="popup">
-                        <div className="popup-content">
-                            <h2 className="letters-color-header">Sign In</h2>
-                            <p>...</p>
+                    <div className="popup-already" >
+                        <div className="popup-content-already" data-aos="zoom-in" data-aos-anchor-placement="center-bottom">
+                            <h2 className="letters-color-signin">Sign In</h2>
+                            {/* <p>...</p> */}
+                            <div className="logo-signin">
+                                <img className="logo-signin-img" src={require("../images/New Shubadinam Logo/Shubadinam Blue.png")} />
+                            </div>
+
 
                             <div className="email-pass-cnt">
                                 <div className="email-input-popup">
@@ -154,7 +246,7 @@ const HomeSignInComponent = () => {
                                 <button className="sumbit-font login-sub-button" onClick={() => clickSubmitbtn()} disabled={
                                     dynamicInput.userEmail.length === 0 ||
                                     dynamicInput.userPassword.length === 0
-                                }>sumbit</button>
+                                }>Submit</button>
                             </div>
                             <button className="close-btn" onClick={togglePopup}> Close </button>
                         </div>

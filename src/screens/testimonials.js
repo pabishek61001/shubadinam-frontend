@@ -1,78 +1,70 @@
-// import React from 'react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-// const TestimonialScreen = ({ author, content, image }) => {
-//   return (
-//     <div className="testimonial6 py-5">
-//     <div className="container">
-//       <div className="row">
-//         <div className="col-lg-2 col-md-3">
-//           <div className="nav flex-column nav-pills testi6" id="v-pills-tab" role="tablist">
-//             <a className="nav-link active" data-toggle="pill" href="#t6-1" role="tab" aria-controls="t6-1" aria-expanded="true">
-//                                         <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/testimonial/1.jpg" alt="wrapkit" className="rounded-circle" />
-//                                     </a>
-//             <a className="nav-link" data-toggle="pill" href="#t6-2" role="tab" aria-controls="t6-2" aria-expanded="true">
-//                                        <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/testimonial/2.jpg" alt="wrapkit" className="rounded-circle" />      
-//                                     </a>
-//             <a className="nav-link" data-toggle="pill" href="#t6-3" role="tab" aria-controls="t6-3" aria-expanded="true">
-//                                        <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/testimonial/3.jpg" alt="wrapkit" className="rounded-circle" />      
-//                                     </a>
-//             <a className="nav-link" data-toggle="pill" href="#t6-4" role="tab" aria-controls="t6-4" aria-expanded="true">
-//                                        <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/testimonial/4.jpg" alt="wrapkit" className="rounded-circle" />  
-//                                     </a>
-//           </div>
-//         </div>
-//         <div className="col-lg-9 col-md-8 ml-auto align-self-center">
-//           <div className="tab-content" id="v-pills-tabContent">
-//             <div className="tab-pane fade show active" id="t6-1" role="tabpanel">
-//               <h3 className="font-weight-medium">What our Customers says</h3>
-//               <h6 className="subtitle mt-4 font-weight-normal">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do mode tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h6>
-//               <div className="d-flex mt-5">
-//                 <div>
-//                   <h5 className="mb-0 text-uppercase font-weight-normal">Hanna Gover</h5>
-//                   <h6 className="subtitle font-weight-normal">Texas</h6>
-//                 </div>
-//                 <button className="btn rounded-circle btn-danger btn-md ml-auto"><i className="icon-bubble"></i></button>
-//               </div>
-//             </div>
-//             <div className="tab-pane fade" id="t6-2" role="tabpanel">
-//               <h3 className="font-weight-medium">What our Customers says</h3>
-//               <h6 className="subtitle mt-4 font-weight-normal">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do mode tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h6>
-//               <div className="d-flex mt-5">
-//                 <div>
-//                   <h5 className="mb-0 text-uppercase font-weight-normal">Hanna Gover</h5>
-//                   <h6 className="subtitle font-weight-normal">Texas</h6>
-//                 </div>
-//                 <button className="btn rounded-circle btn-danger btn-md ml-auto"><i className="icon-bubble"></i></button>
-//               </div>
-//             </div>
-//             <div className="tab-pane fade" id="t6-3" role="tabpanel">
-//               <h3 className="font-weight-medium">What our Customers says</h3>
-//               <h6 className="subtitle mt-4 font-weight-normal">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do mode tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h6>
-//               <div className="d-flex mt-5">
-//                 <div>
-//                   <h5 className="mb-0 text-uppercase font-weight-normal">Hanna Gover</h5>
-//                   <h6 className="subtitle font-weight-normal">Texas</h6>
-//                 </div>
-//                 <button className="btn rounded-circle btn-danger btn-md ml-auto"><i className="icon-bubble"></i></button>
-//               </div>
-//             </div>
-//             <div className="tab-pane fade" id="t6-4" role="tabpanel">
-//               <h3 className="font-weight-medium">What our Customers says</h3>
-//               <h6 className="subtitle mt-4 font-weight-normal">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do mode tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h6>
-//               <div className="d-flex mt-5">
-//                 <div>
-//                   <h5 className="mb-0 text-uppercase font-weight-normal">Hanna Gover</h5>
-//                   <h6 className="subtitle font-weight-normal">Texas</h6>
-//                 </div>
-//                 <button className="btn rounded-circle btn-danger btn-md ml-auto"><i className="icon-bubble"></i></button>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-//   );
-// };
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope, fa1, fa2, fa3, faUser, faL } from '@fortawesome/free-solid-svg-icons'
+import { } from '@fortawesome/free-regular-svg-icons'
+import { } from "@fortawesome/fontawesome-free"
 
-// export default TestimonialScreen;
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
+
+AOS.init({
+    duration: 600,
+});
+
+const TestimonialScreen = () => {
+
+
+
+
+    const testimonials = [
+        {
+            id: 1,
+            profilePic: require("../images/Profile Icon1.jpg"),
+            text: 'Testimonial 1: This is the first testimonial.',
+            author: 'Author 1',
+            background: 'linear-gradient(to left,white, #daeff5)'
+        },
+        {
+            id: 2,
+            text: 'Testimonial 2: This is the second testimonial.',
+            profilePic: require("../images/profile icon2.jpg"),
+            author: 'Author 2',
+            background: 'linear-gradient(to left,white, #f6dcdc)'
+        },
+        {
+            id: 3,
+            text: 'Testimonial 3: This is the third testimonial.',
+            profilePic: require("../images/Profile Icon1.jpg"),
+            author: 'Author 3',
+            background: 'linear-gradient(to left,white, #daeff5)'
+        },
+    ];
+
+
+    return (
+
+        <Carousel centerMode centerSlidePercentage={100}>
+            {testimonials.map(testimonial => (
+                <div className='testimonial-h' key={testimonial.id} style={{
+                    background: testimonial.background, // Use the background property
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    // padding: '20px',
+                }}>
+                    <img src={testimonial.profilePic} alt={testimonial.author} className="testimonial-profile-pic" />
+                    {/* <p className="testimonial-text">{testimonial.text}</p> */}
+                    {/* <p className="testimonial-author">- {testimonial.author}</p> */}
+                </div>
+            ))}
+        </Carousel>
+
+
+    );
+}
+
+export default TestimonialScreen;
